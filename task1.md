@@ -67,12 +67,12 @@ console.log(myList.list()); // ['Коля Тяпкин']
 
 ```javascript
 // вариант с коллбэком
-getRandomAsync(callback) {
+function getRandomAsync(callback) {
   callback(Math.random() > 0.5);
 }
 
 // вариант с промисами
-getRandomPromise() {
+function getRandomPromise() {
   return new Promise((res, rej) => {
     getRandomAsync(res)
   });
