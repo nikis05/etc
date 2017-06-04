@@ -61,3 +61,34 @@ console.log(myList.list()); // ['Вася Иванов', 'Коля Тяпкин'
 myList.delete(vasyaId);
 console.log(myList.list()); // ['Коля Тяпкин']
 ```
+### Задание 2. На работу с асинхронщиной.
+
+Если ты знаком с промисами, бери соответствующий вариант. Если нет, ничего страшного, разберемся по ходу.
+
+```javascript
+// вариант с коллбэком
+getRandomAsync(callback) {
+  callback(Math.random() > 0.5);
+}
+
+// вариант с промисами
+getRandomPromise() {
+  return new Promise((res, rej) => {
+    getRandomAsync(res)
+  });
+}
+```
+
+Необходимо написать функцию, которая выполнит getRandomAsync/getRandomPromise последовательно 7 раз. После этого вернуть массив из результатов выполнения в коллбэк, либо вернуть промис, который заресолвится с результатом выполнения
+
+```javascript
+// вариант с коллбэком
+getResults(function (results) {
+  console.log(results); // [true, true, false, true, false, false, true]
+}
+
+// вариант с промисами
+
+getResults().then(function (results) {
+  console.log(results); // [true, false, true, true, false, true, true]
+});
