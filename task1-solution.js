@@ -25,7 +25,7 @@ class UsersList {
   }
   
   _addToMap(fullname, id) {
-    const position = this.map.findId(id => this._sortFn(this.list[id], fullname));
+    const position = this.map.findIndex(id => this._sortFn(this.list[id], fullname));
     this.map.splice(position, 0, id);
   }
   
