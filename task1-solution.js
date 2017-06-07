@@ -29,7 +29,8 @@ class UsersList {
     // определяем правильную позицию id нового пользователя в map
     const position = this.map.findIndex(id => this._sortFn(this.list[id], fullname));
     // вставляем id в map
-    position === -1 ? this.map.push(id) || this.map.splice(position, 0, id)
+    if (position === -1) this.map.push(id);
+    else this.map.splice(position, 0, id)
   }
   
   _deleteFromMap(id) {
