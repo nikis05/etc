@@ -13,8 +13,7 @@ class UsersList {
   
   _normalizeWord(word) {
     word = word.trim().toLowerCase();
-    word[0] = word.charAt(0).toUpperCase();
-    return word;
+    return word.charAt(0).toUpperCase() + word.substr(1);
   }
   
   _normalize(name, surname) {
@@ -41,7 +40,7 @@ class UsersList {
   
   add(name, surname) {
     const fullname = this._normalize(name, surname);
-    const id = this.list.push(fullname);li
+    const id = this.list.push(fullname);
     this._addToMap(fullname, id);
     return id;
   }
