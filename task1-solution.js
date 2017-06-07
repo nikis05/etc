@@ -6,7 +6,7 @@ class UsersList {
     if (initialUsers === undefined) return;
     initialUsers.forEach(user => {
       let id = this.list.push(user);
-      this.map.push(this.id);
+      this.map.push(id);
     });
     this.map = this.map.sort((id1, id2) => this._sortFn(this.list[id1], this.list[id2])); 
   }
@@ -18,7 +18,7 @@ class UsersList {
   }
   
   _normalize(name, surname) {
-    return `${this.normalizeWord(name)} ${this.normalizeWord(surname)}`;
+    return `${this._normalizeWord(name)} ${this._normalizeWord(surname)}`;
   }
   
   _sortFn(item1, item2) {
@@ -35,7 +35,7 @@ class UsersList {
     this.map.splice(position, 1);
   }
   
-  list() {
+  getList() {
     return this.map.map(id => list[id]);
   }
   
