@@ -30,7 +30,7 @@ class UsersList {
   }
   
   _deleteFromMap(id) {
-    let position = this.map.findId(mapId => mapId === id);
+    let position = this.map.findIndex(mapId => mapId === id);
     this.map.splice(position, 1);
   }
   
