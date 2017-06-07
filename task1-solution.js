@@ -5,7 +5,7 @@ class UsersList {
     this.map = [];
     if (initialUsers === undefined) return;
     initialUsers.forEach(user => {
-      let id = this.list.push(user);
+      let id = this.list.push(user) - 1;
       this.map.push(id);
     });
     this.map = this.map.sort((id1, id2) => this._sortFn(this.list[id1], this.list[id2])); 
@@ -36,12 +36,12 @@ class UsersList {
   }
   
   getList() {
-    return this.map.map(id => list[id]);
+    return this.map.map(id => this.list[id]);
   }
   
   add(name, surname) {
     const fullname = this._normalize(name, surname);
-    const id = this.list.push(fullname);
+    const id = this.list.push(fullname);li
     this._addToMap(fullname, id);
     return id;
   }
