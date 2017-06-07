@@ -1,26 +1,14 @@
 class UsersList {
   
-  /*
-    Объявление полей вне конструктора из ES6.
-    Аналогично
-    
-    constructor() {
-      this.list = [];
-      this.map = [];
-    }
-    
-  */
-  
-  list = []; // Храним пользователей в формате id -> полное имя
-  map = []; // Храним алфавитный порядок в формате порядковый номер -> id
-  
   constructor(initialUsers) {
+    this.list = [];
+    this.map = [];
     if (initialUsers === undefined) return;
     initialUsers.forEach(user => {
       let id = this.list.push(user);
       this.map.push(this.id);
     });
-    this.map = this.map.sort(id1, id2 => this._sortFn(this.list[id1], this.list[id2])); 
+    this.map = this.map.sort((id1, id2) => this._sortFn(this.list[id1], this.list[id2])); 
   }
   
   _normalizeWord(word) {
@@ -38,7 +26,7 @@ class UsersList {
   }
   
   _addToMap(fullname, id) {
-    const position = this.map.find((id) => this._sortFn(this.list[id], fullname);
+    const position = this.map.find(id => this._sortFn(this.list[id], fullname);
     this.map.splice(position, 0, id);
   }
   
